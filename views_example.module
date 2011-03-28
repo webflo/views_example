@@ -1,0 +1,22 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * This is the file description for Views Example module.
+ *
+ * In this more verbose, multi-line description, you can specify what this
+ * file does exactly. Make sure to wrap your documentation in column 78 so
+ * that the file can be displayed nicely in default-sized consoles.
+ */
+
+function views_example_preprocess_views_view_field(&$vars) {
+  dsm($vars);
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function views_example_theme_registry_alter(&$registry) {
+  $registry['theme paths'][] = drupal_get_path('module', 'views_example');
+}
