@@ -18,5 +18,8 @@ function views_example_preprocess_views_view_field(&$vars) {
  * Implements hook_theme_registry_alter().
  */
 function views_example_theme_registry_alter(&$registry) {
-  $registry['theme paths'][] = drupal_get_path('module', 'views_example');
+  if (!empty($registry['views_view_field']['theme paths'])) {
+    $theme = array_shift($registry['views_view_field']['theme paths']);
+    array_unshift($registry['views_view_field']['theme paths'], $theme, drupal_get_path('module', 'views_example'));
+  }
 }
